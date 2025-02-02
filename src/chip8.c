@@ -11,7 +11,8 @@
 	{													\
 		if (DEBUG) fprintf(stderr, fmt, __VA_ARGS__);	\
 	} while (0)
-int DEBUG = 0;
+
+const int DEBUG = 0;
 
 
 uint8_t fontset[80] =
@@ -99,8 +100,8 @@ void cycle()
 		case 0x00EE:	// 0x00EE: Return from subroutine
 			debug_print("[OK] 0x%X: 0x00EE\n", op);
 
-			pc = stack[sp];
 			sp--;
+			pc = stack[sp];
 			pc += 2;
 			break;
 
@@ -119,8 +120,8 @@ void cycle()
 	case 0x2000:	// 0x2nnn: Call subroutine at nnn
 		debug_print("[OK] 0x%X: 0x2nnnn\n", op);
 
-		sp++;
 		stack[sp] = pc;
+		sp++;
 		pc = op & 0x0FFF;
 		break;
 
@@ -282,6 +283,7 @@ void cycle()
 				{
 					if (display[V[x] + xline + (V[y] + yline) * 64] == 1)
 						V[0xF] = 1;
+
 
 					display[V[x] + xline + (V[y] + yline) * 64] ^= 1;
 				}

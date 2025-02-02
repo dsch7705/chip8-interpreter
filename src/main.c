@@ -1,14 +1,17 @@
-#include "inout.h"
 #include "chip8.h"
 #include <errno.h>
 #include <stdio.h>
+#include <time.h>
+
+#include "gui.h"
 
 
 extern int quit;
+extern uint8_t gui_quit;
 
 int main(int argc, char** argv)
 {
-	init_screen(16);
+	//init_screen(16);
 	init_cpu();
 	int err = load_rom("roms/rom2.ch8");
 	if (err != 0)
@@ -25,15 +28,21 @@ int main(int argc, char** argv)
 		return 1;
 	}
 	printf("[OK] ROM loaded successfully!\n");
+	
 
-	while (!quit)
+	init_gui();
+	while (!gui_quit)
 	{
 		cycle();
 		//print_registers();
-		draw();
+		//draw();
 
-		handle_events();
+		//handle_events();
+
+		draw_gui();
+		handle_gui_events();
+
 	}
 
-	destroy_screen();
+	//destroy_screen();
 }

@@ -27,18 +27,21 @@
     <ClInclude Include="include\chip8.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\inout.h">
+    <ClInclude Include="include\gui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\raylib\raygui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\inout.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\chip8.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
