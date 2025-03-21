@@ -27,5 +27,6 @@ extern uint8_t sound_flag;
 void init_cpu();
 int load_rom(const char* filename);
 void cycle();
+void decrement_registers();
 
 #endif

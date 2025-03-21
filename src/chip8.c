@@ -402,7 +402,10 @@ void cycle()
 		printf("[ERR] Unknown opcode: 0x%X\n", op);
 		break;
 	}
+}
 
+void decrement_registers()
+{
 	if (dt > 0) dt--;
 	if (st > 0)
 	{
