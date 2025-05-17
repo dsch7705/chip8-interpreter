@@ -1,8 +1,8 @@
 #include "gui.h"
 #include "chip8.h"
-#include <raylib/raylib.h>
+#include "raylib.h"
 #define RAYGUI_IMPLEMENTATION
-#include <raylib/raygui.h>
+#include "raygui.h"
 
 #include <stdint.h>
 
@@ -96,7 +96,7 @@ void draw_memory()
 	// Scroll to new memory address if program counter changes
 	static uint16_t last_pc = 0;
 	if (pc != last_pc)
-		mem_scroll.y = min(0, (float)pc / sizeof(memory) * -content_rect.height + GuiGetStyle(DEFAULT, TEXT_SIZE) * 5);
+		mem_scroll.y = fmin(0, (double)pc / sizeof(memory) * -content_rect.height + GuiGetStyle(DEFAULT, TEXT_SIZE) * 5);
 	last_pc = pc;
 	// Disable x scrolling
 	mem_scroll.x = 0;
